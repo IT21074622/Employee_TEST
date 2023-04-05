@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Add Employee Form</h1>
+<div mat-dialog-content>
+    <form [formGroup] = "employeeForm">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput type="text" placeholder="First Name"> 
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput type="text" placeholder="Last Name"> 
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>NIC</mat-label>
+            <input formControlName="nic" matInput type="text" placeholder="NIC"> 
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>DOB</mat-label>
+            <input formControlName="dob" matInput type="text" placeholder="DOB"> 
+        </mat-form-field>
+    
+        <label><h4>Maital Status</h4></label>
+        <mat-radio-group formControlName="maritalStatus">
+            <mat-radio-button style="margin-right: 8px;" *ngFor="let status of mStatusList" [value]="status">
+                {{status}}
+            </mat-radio-button>
+        </mat-radio-group>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender" placeholder="Gender">
+                <mat-option value="Male">Male</mat-option>
+                <mat-option value="Male">Female</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warm" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="addEmployee()">{{actionBtn}}</button>
+</div>
